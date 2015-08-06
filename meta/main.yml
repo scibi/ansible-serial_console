@@ -37,10 +37,13 @@ ansigenome_info:
       github: 'scibi'
 
   synopsis: |
-    debops.serial_console described in a few paragraphs....
+    debops.serial_console configures serial console in GRUB.
+    It enables both Linux kernel and GRUB serial console.
+    
+    Only Debian Jessie is supported.
 
-  usage: |
-    Describe how to use debops.serial_console...
+  #usage: |
+  #  Describe how to use debops.serial_console...
 
   #custom: |
   #  Any custom output you want after the usage section...

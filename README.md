@@ -1,8 +1,11 @@
 ## debops.serial_console
 
-[![Travis CI](http://img.shields.io/travis/scibi/ansible-debops.serial_console.svg?style=flat)](http://travis-ci.org/scibi/ansible-debops.serial_console)  [![Platforms](http://img.shields.io/badge/platforms-debian-lightgrey.svg?style=flat)](#)
+[![Travis CI](http://img.shields.io/travis/scibi/ansible-serial_console.svg?style=flat)](http://travis-ci.org/scibi/ansible-serial_console)  [![Platforms](http://img.shields.io/badge/platforms-debian-lightgrey.svg?style=flat)](#)
 
-debops.serial_console described in a few paragraphs....
+debops.serial_console configures serial console in GRUB.
+It enables both Linux kernel and GRUB serial console.
+
+Only Debian Jessie is supported.
 
 
 
@@ -22,15 +25,14 @@ List of default variables available in the inventory:
     serial_console_speed: 115200
 
 
-### Detailed usage guide
-
-Describe how to use debops.serial_console...
 
 
 ### Authors and license
 
 `debops.serial_console` role was written by:
-- Patryk Ściborek | [e-mail](mailto:patryk@sciborek.com) | [Twitter](https://twitter.com/patscibo) | [GitHub](https://github.com/scibi)License: [GPLv3](https://tldrlegal.com/license/gnu-general-public-license-v3-%28gpl-3%29)
+- Patryk Ściborek | [e-mail](mailto:patryk@sciborek.com) | [GitHub](https://github.com/scibi)
+
+License: [GPLv3](https://tldrlegal.com/license/gnu-general-public-license-v3-%28gpl-3%29)
 
 ***
 
