@@ -11,7 +11,9 @@ virtualenv:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y grub-pc
+  - ls -l /usr/sbin/grub-probe
   - sudo bash -c echo -e '#!/bin/bash\necho /dev/sda1' ">" /usr/sbin/grub-probe
+  - ls -l /usr/sbin/grub-probe
 
 install: True
 
