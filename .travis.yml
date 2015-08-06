@@ -12,15 +12,16 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y grub-pc
   - echo -e '#!/bin/bash\necho /dev/sda1' > /tmp/grub-probe.tmp
+  - echo -e '#!/bin/bash\necho update-grub placeholder' > /tmp/update-grub.tmp
   - ls -l /tmp/grub-probe.tmp
   - chmod a+x /tmp/grub-probe.tmp
+  - chmod a+x /tmp/update-grub.tmp
   - ls -l /usr/sbin/grub-probe
+  - ls -l /usr/sbin/update-grub
   - sudo bash -c 'mv /usr/sbin/grub-probe /usr/sbin/grub-probe.orig; mv /tmp/grub-probe.tmp /usr/sbin/grub-probe'
+  - sudo bash -c 'mv /usr/sbin/update-grub /usr/sbin/update-grub.orig; mv /tmp/update-grub.tmp /usr/sbin/update-grub'
   - ls -l /usr/sbin/grub-probe
-  - ls -l /boot/grub/
-  - sudo mkdir /boot/grub/i386-pc/
-  - ls -l /boot/grub/i386-pc/
-  - sudo touch /boot/grub/i386-pc/serial.mod
+  - ls -l /usr/sbin/update-grub
 
 install: True
 
