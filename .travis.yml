@@ -17,6 +17,9 @@ before_install:
   - ls -l /usr/sbin/grub-probe
   - sudo bash -c 'mv /usr/sbin/grub-probe /usr/sbin/grub-probe.orig; mv /tmp/grub-probe.tmp /usr/sbin/grub-probe'
   - ls -l /usr/sbin/grub-probe
+  - ls -l /boot/grub/
+  - ls -l /boot/grub/i386-pc/
+  - sudo touch /boot/grub/i386-pc/serial.mod
 
 install: True
 
