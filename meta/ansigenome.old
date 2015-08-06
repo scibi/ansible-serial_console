@@ -1,0 +1,26 @@
+---
+
+ansigenome_info:
+  github_url: "https://github.com/scibi/ansible-serial_console"
+  git_branch: "master"
+  galaxy_id: ''
+
+  travis: True
+
+  license_url: 'https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)'
+ 
+  authors:
+    - name: 'Patryk Ściborek'
+      url: ''
+      email: 'patryk@sciborek.com'
+      twitter: 'patscibo'
+      github: 'scibi'
+
+  synopsis: |
+    debops.serial_console described in a few paragraphs....
+
+  usage: |
+    Describe how to use debops.serial_console...
+
+  #custom: |
+  #  Any custom output you want after the usage section...

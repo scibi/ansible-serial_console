@@ -1,0 +1,10 @@
+---
+# defaults file for debops.serial_console
+
+# Serial port to enable console on (eg. ttyS0 => 0, ttyS1 => 1)
+serial_console_unit: 0
+
+# Speed of the serial port.
+# Other parameters (8 bits, no parrity, 1 stop bit are hardcoded)
+serial_console_speed: 115200
+

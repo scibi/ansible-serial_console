@@ -1,0 +1,6 @@
+---
+# handlers file for debops.serial_console
+
+- name: Update grub
+  shell: update-grub 2>&1
+

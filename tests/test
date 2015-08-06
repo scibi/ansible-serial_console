@@ -1,0 +1,11 @@
+---
+
+#!/bin/bash
+
+# test: Test debops.serial_console
+# Copyright (C) 2015 Patryk Sciborek <patryk@sciborek.com>
+
+. "lib/test"
+
+assert_playbook_runs
+assert_playbook_idempotent

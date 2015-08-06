@@ -1,0 +1,27 @@
+---
+# tasks file for debops.serial_console
+
+- name: Set kernel console parameters
+  lineinfile:
+    dest: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT=' 
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS{{ serial_console_unit }},{{ serial_console_speed }}n8"'
+    state: present
+  notify: Update grub
+
+- name: Set grub terminal
+  lineinfile:
+    dest: /etc/default/grub
+    regexp: '^GRUB_TERMINAL='
+    line: 'GRUB_TERMINAL="serial console"'
+    state: present
+  notify: Update grub
+
+- name: Set grub serial parameters
+  lineinfile:
+    dest: /etc/default/grub
+    regexp: '^GRUB_SERIAL_COMMAND='
+    line: 'GRUB_SERIAL_COMMAND="serial --unit={{ serial_console_unit }} --speed={{ serial_console_speed }} --word=8 --parity=no --stop=1"'
+    state: present
+  notify: Update grub
+
