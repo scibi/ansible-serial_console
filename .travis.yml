@@ -13,9 +13,7 @@ before_install:
   - sudo apt-get install -y grub-pc
   - echo -e '#!/bin/bash\necho update-grub placeholder' > /tmp/update-grub.tmp
   - chmod a+x /tmp/update-grub.tmp
-  - ls -l /usr/sbin/update-grub
   - sudo bash -c 'mv /usr/sbin/update-grub /usr/sbin/update-grub.orig; mv /tmp/update-grub.tmp /usr/sbin/update-grub'
-  - ls -l /usr/sbin/update-grub
 
 install: True
 
