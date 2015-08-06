@@ -11,4 +11,4 @@ install: True
 
 script:
   - 'git clone --depth 1 https://github.com/nickjj/rolespec'
-  - 'cd rolespec ; ./runner -r https://github.com/scibi/ansible-debops.serial_console'
+  - 'cd rolespec ; bin/runner -r https://github.com/scibi/ansible-serial_console'
