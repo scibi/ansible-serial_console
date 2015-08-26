@@ -1,10 +1,14 @@
 ---
 # defaults file for debops.serial_console
 
+grub_kernel_options: 'quiet'
+
+grub_serial_console_enable: False
+
 # Serial port to enable console on (eg. ttyS0 => 0, ttyS1 => 1)
-serial_console_unit: 0
+grub_serial_console_unit: 0
 
 # Speed of the serial port.
 # Other parameters (8 bits, no parrity, 1 stop bit are hardcoded)
-serial_console_speed: 115200
+grub_serial_console_speed: 115200
 
