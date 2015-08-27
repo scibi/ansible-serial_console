@@ -1,30 +1,29 @@
 ---
 # tasks file for debops.serial_console
 
+- name: Divert original /etc/default/grub
+  command: dpkg-divert --quiet --local --divert /etc/default/grub.dpkg-divert --rename /etc/default/grub
+  args:
+    creates: '/etc/default/grub.dpkg-divert'
 
-- name: Set kernel console parameters
-  lineinfile:
-    dest: /etc/default/grub
-    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT=' 
-    line: 'GRUB_CMDLINE_LINUX_DEFAULT="{{ grub_kernel_options }}{% if grub_serial_console_enable %} console=tty0 console=ttyS{{ grub_serial_console_unit }},{{ grub_serial_console_speed }}n8{% endif %}"'
-    state: present
+- name: Get default kernel parameters
+  shell: . /etc/default/grub.dpkg-divert; echo $GRUB_CMDLINE_LINUX_DEFAULT | sed -e 's,\bquiet\b,,'
+  register: grub_register_default_cmdline
+  changed_when: False
+  when: grub_save_options
+
+- name: Default kernel parameters
+  set_fact:
+    grub_fact_default_kernel_parameters: '{{ grub_register_default_cmdline.stdout }}'
+  when: grub_save_options
+
+- name: Configure /etc/default/grub
+  template:
+    src: 'etc/default/grub.j2'
+    dest: '/etc/default/grub'
+    owner:  'root'
+    group:  'root'
+    mode:   '0644'
   notify: Update grub
 
-- name: Set grub terminal
-  lineinfile:
-    dest: /etc/default/grub
-    regexp: '^GRUB_TERMINAL='
-    line: 'GRUB_TERMINAL="serial console"'
-    state: present
-  notify: Update grub
-  when: grub_serial_console_enable
-
-- name: Set grub serial parameters
-  lineinfile:
-    dest: /etc/default/grub
-    regexp: '^GRUB_SERIAL_COMMAND='
-    line: 'GRUB_SERIAL_COMMAND="serial --unit={{ grub_serial_console_unit }} --speed={{ grub_serial_console_speed }} --word=8 --parity=no --stop=1"'
-    state: present
-  notify: Update grub
-  when: grub_serial_console_enable
 

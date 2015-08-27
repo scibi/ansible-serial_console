@@ -1,8 +1,14 @@
 ---
 # defaults file for debops.serial_console
 
+
+# Save all original kernel options except 'quiet'
+grub_save_options: True
+
+# Kernel options. If grub_save_options is true they will be appended after original options
 grub_kernel_options: 'quiet'
 
+# Enable serial console (in both grub and kernel)
 grub_serial_console_enable: False
 
 # Serial port to enable console on (eg. ttyS0 => 0, ttyS1 => 1)
